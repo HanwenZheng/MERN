@@ -8,7 +8,7 @@ class CoolCaption extends React.Component {
     super(props);
 
     this.state = {
-      words: [1, 2, 3],
+      words: [1, 2, 3, 4],
       current: 0,
       show: false,
     };
