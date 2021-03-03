@@ -1,4 +1,5 @@
 import React from "react";
+// noinspection ES6CheckImport
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -14,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    history.listen((location, action) => {
+    history.listen(() => {
       // clear alert on location change
       this.props.clearAlerts();
     });
