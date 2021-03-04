@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import CoolCaption from "../_components/CoolCaption";
+import TextShow from "../_components/TextShow";
 
 class MyPage extends React.Component {
   render() {
     return (
       <div>
-        <div>Hello World!</div>
-        <CoolCaption />
+        <TextShow />
+        {/*<CoolCaption />*/}
       </div>
     );
   }
