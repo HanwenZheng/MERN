@@ -6,11 +6,13 @@ class Navigator extends Component {
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">Alex Zheng</Navbar.Brand>
+        <Navbar expand="lg">
+          <Navbar.Brand href="#home" className={styles.logo}>
+            Alex Zheng
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="ml-auto">
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Work</Nav.Link>
               <NavDropdown className="fadein" title="More" id="basic-nav-dropdown">
@@ -21,10 +23,6 @@ class Navigator extends Component {
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Navbar>
       </div>

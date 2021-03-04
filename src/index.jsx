@@ -17,3 +17,5 @@ render(
   </Provider>,
   document.getElementById("app")
 );
+
+document.body.style = "background: none;";

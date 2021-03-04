@@ -11,6 +11,7 @@ import Navigator from "../_components/Navigator";
 // import { HomePage } from "../HomePage";
 // import { LoginPage } from "../LoginPage";
 // import { RegisterPage } from "../RegisterPage";
+import styles from "./App.module.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,18 +21,34 @@ class App extends React.Component {
       // clear alert on location change
       this.props.clearAlerts();
     });
+
+    this.state = {
+      current_bg: 0,
+    };
+  }
+
+  unsplash_ids = ["1477244075012-5cc28286e465", "1500462918059-b1a0cb512f1d", "1580428180163-76ab1efe2aed"];
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({
+        current_bg: this.state.current_bg === this.unsplash_ids.length - 1 ? 0 : this.state.current_bg + 1,
+      });
+    }, 3000);
   }
 
   render() {
-    const { alert } = this.props;
+    const bg_urls = this.unsplash_ids.map((el) => {
+      return `https://images.unsplash.com/photo-${el}`;
+    });
+
     return (
-      <div>
-        <Navigator />
-        <div className="jumbotron" style={{ backgroundColor: "rgb(0,0,0)" }}>
-          <div className="container">
-            <div className="row justify-content-center">
-              <div className="col-10">
-                {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+      <div className={styles.aux} style={{ backgroundImage: `url(${bg_urls[this.state.current_bg]})` }}>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-10">
+              <Navigator />
+              <div className="jumbotron" style={{ background: "none" }}>
                 <Router history={history}>
                   <Switch>
                     <Route exact path="/" component={MyPage} />

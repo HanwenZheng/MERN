@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import CoolCaption from "../_components/CoolCaption";
 import TextShow from "../_components/TextShow";
+import styles from "./MyPage.module.scss";
 
 class MyPage extends React.Component {
   render() {
