@@ -1,8 +1,13 @@
-.logo {
-  font-weight: bold;
+.outer {
+  a {
+    color: white !important;
+  }
+  a:hover {
+    border-bottom: 2.5px solid white;
+    margin-bottom: -2.5px;
+  }
 }
 
-.logo:hover {
-  border-bottom: 3px solid black;
-  margin-bottom: -3px;
+.logo {
+  font-weight: bold;
 }
