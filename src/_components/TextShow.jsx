@@ -6,7 +6,7 @@ class TextShow extends Component {
   render() {
     return (
       <div>
-        <h1 className={styles.center}>
+        <h1 className={styles.outer}>
           <span className={styles.prefix}>{`Call me a`}</span>
           <TextLoop className={styles.TextLoop} mask={false}>
             <div>Full-stack Developer</div>
