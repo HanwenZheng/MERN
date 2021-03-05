@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import CoolCaption from "../_components/CoolCaption";
-import TextShow from "../_components/TextShow";
+import Navigator from "../../Component/Navigator";
+import TextShow from "../../Component/TextShow";
 import styles from "./MyPage.module.scss";
 
 class MyPage extends React.Component {
   render() {
     return (
       <div>
+        <Navigator />
         <TextShow />
-        {/*<CoolCaption />*/}
       </div>
     );
   }

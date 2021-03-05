@@ -2,13 +2,13 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 
-import { store } from "./_helpers";
+import { store } from "./Redux/Helper";
 import { App } from "./App";
 
 import "./custom.scss";
 
 // setup fake backend
-import { configureFakeBackend } from "./_helpers";
+import { configureFakeBackend } from "./Redux/Helper";
 configureFakeBackend();
 
 render(
@@ -18,4 +18,4 @@ render(
   document.getElementById("app")
 );
 
-document.body.style = "background: none;";
+// document.body.style = "background: none;";

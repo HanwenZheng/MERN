@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { userActions } from "../_actions";
+import { userActions } from "../../Redux/Actions";
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -50,11 +50,7 @@ class RegisterPage extends React.Component {
       <div className="col-md-6 col-md-offset-3">
         <h2>Register</h2>
         <form name="form" onSubmit={this.handleSubmit}>
-          <div
-            className={
-              "form-group" + (submitted && !user.firstName ? " has-error" : "")
-            }
-          >
+          <div className={"form-group" + (submitted && !user.firstName ? " has-error" : "")}>
             <label htmlFor="firstName">First Name</label>
             <input
               type="text"
@@ -63,15 +59,9 @@ class RegisterPage extends React.Component {
               value={user.firstName}
               onChange={this.handleChange}
             />
-            {submitted && !user.firstName && (
-              <div className="help-block">First Name is required</div>
-            )}
+            {submitted && !user.firstName && <div className="help-block">First Name is required</div>}
           </div>
-          <div
-            className={
-              "form-group" + (submitted && !user.lastName ? " has-error" : "")
-            }
-          >
+          <div className={"form-group" + (submitted && !user.lastName ? " has-error" : "")}>
             <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
@@ -80,15 +70,9 @@ class RegisterPage extends React.Component {
               value={user.lastName}
               onChange={this.handleChange}
             />
-            {submitted && !user.lastName && (
-              <div className="help-block">Last Name is required</div>
-            )}
+            {submitted && !user.lastName && <div className="help-block">Last Name is required</div>}
           </div>
-          <div
-            className={
-              "form-group" + (submitted && !user.username ? " has-error" : "")
-            }
-          >
+          <div className={"form-group" + (submitted && !user.username ? " has-error" : "")}>
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -97,15 +81,9 @@ class RegisterPage extends React.Component {
               value={user.username}
               onChange={this.handleChange}
             />
-            {submitted && !user.username && (
-              <div className="help-block">Username is required</div>
-            )}
+            {submitted && !user.username && <div className="help-block">Username is required</div>}
           </div>
-          <div
-            className={
-              "form-group" + (submitted && !user.password ? " has-error" : "")
-            }
-          >
+          <div className={"form-group" + (submitted && !user.password ? " has-error" : "")}>
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -114,9 +92,7 @@ class RegisterPage extends React.Component {
               value={user.password}
               onChange={this.handleChange}
             />
-            {submitted && !user.password && (
-              <div className="help-block">Password is required</div>
-            )}
+            {submitted && !user.password && <div className="help-block">Password is required</div>}
           </div>
           <div className="form-group">
             <button className="btn btn-primary">Register</button>
