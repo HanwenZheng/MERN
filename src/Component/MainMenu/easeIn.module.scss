@@ -1,0 +1,20 @@
+.enter,
+.exitActive,
+.exitDone {
+  opacity: 0;
+  position: relative;
+  top: -40px;
+}
+
+.enterActive,
+.enterDone,
+.exit {
+  opacity: 1;
+  position: relative;
+  top: 0;
+}
+
+.enterActive,
+.exitActive {
+  transition: all 1000ms ease-in-out;
+}

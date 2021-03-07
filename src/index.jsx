@@ -18,4 +18,4 @@ render(
   document.getElementById("app")
 );
 
-// document.body.style = "background: none;";
+document.body.style = "background-color: black;";

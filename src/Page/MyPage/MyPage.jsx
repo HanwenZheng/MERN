@@ -1,27 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
 
-import Navigator from "../../Component/Navigator";
-import TextShow from "../../Component/TextShow";
+import MainMenu from "../../Component/MainMenu/MainMenu";
+import { SpiralSpinner } from "react-spinners-kit";
+import IntroText from "../../Component/IntroText/IntroText";
 import styles from "./MyPage.module.scss";
 
-class MyPage extends React.Component {
-  render() {
-    return (
-      <div>
-        <Navigator />
-        <TextShow />
-      </div>
-    );
-  }
+function MyPage() {
+  return (
+    <div>
+      <MainMenu />
+      <IntroText />
+    </div>
+  );
 }
 
-function mapState(state) {
-  return state; // to-do: maybe dumb
-}
-
-const actionCreators = {};
-
-const connectedMyPage = connect(mapState, actionCreators)(MyPage);
-export { connectedMyPage as MyPage };
+export default MyPage;
