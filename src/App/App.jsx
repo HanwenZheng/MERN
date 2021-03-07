@@ -8,6 +8,8 @@ import { alertActions } from "../Redux/Actions";
 import { MyPage } from "../Page/MyPage";
 import styles from "./App.module.scss";
 
+import logo from "../Assets/Img/1901570789_preview_Map-CH-Lv3-v193#161.png";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class App extends React.Component {
     });
 
     return (
-      <div className={styles.aux} style={{ backgroundImage: `url(${bg_urls[this.state.current_bg]})` }}>
+      <div className={styles.aux} style={{ backgroundImage: `url(${logo})` }}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-10">

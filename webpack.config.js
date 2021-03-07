@@ -1,9 +1,16 @@
+// const path = require("path");
+// const buildPath = path.join(__dirname, "./dist");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isDevelopment = process.env.NODE_ENV === "development";
 
 module.exports = {
   mode: "development",
+  // output: {
+  //   path: buildPath,
+  //   filename: "app.bundle.js",
+  //   publicPath: buildPath,
+  // },
   resolve: {
     extensions: [".js", ".jsx", ".scss"],
   },
@@ -49,6 +56,20 @@ module.exports = {
             },
           },
         ],
+      },
+      // {
+      //   test: /\.(jpe?g|png|gif|svg)$/i,
+      //   loader: "file-loader",
+      //   options: {
+      //     name: "/public/icons/[name].[ext]",
+      //   },
+      // },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: "url-loader",
+        options: {
+          name: "Assets/Img/[name].[ext]",
+        },
       },
     ],
   },
