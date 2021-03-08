@@ -22,6 +22,7 @@
     "react-spinners-kit": "^1.9.1",
     "react-text-loop": "^2.3.0",
     "react-transition-group": "^4.4.1",
+    "react-typing-effect": "^2.0.5",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"
@@ -45,6 +46,6 @@
     "webpack-dev-server": "^3.2.1"
   },
   "prettier": {
-    "printWidth": 120
+    "printWidth": 110
   }
 }
