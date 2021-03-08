@@ -5,15 +5,15 @@
   z-index: 1000;
 }
 
-.aux {
+.bgImg {
   height: 1000px;
-  width: 96vw;
+  width: 80vw;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   transition: background-image 1s;
-  position: absolute;
+  position: fixed;
   top: 20vh;
-  left: -7vw;
+  left: 10vw;
 }
 
 .prefix {
