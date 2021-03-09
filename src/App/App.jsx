@@ -1,13 +1,15 @@
 import React from "react"; // noinspection ES6CheckImport
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import ImagesLoaded from "react-images-loaded";
+import { ProgressBar } from "react-bootstrap";
 
 import { history } from "../Redux/Helper";
 import { alertActions } from "../Redux/Actions";
 import MyPage from "../Page/MyPage/MyPage";
 import HomePage from "../Page/HomePage";
 import styles from "./App.module.scss";
-import ImagesLoaded from "react-images-loaded";
+import Cool from "../helper/CoolEmoji";
 
 class App extends React.Component {
   constructor(props) {
@@ -29,7 +31,6 @@ class App extends React.Component {
   handleOnProgress = (instance, image) => {
     this.setState({ loaded: [...this.state.loaded, image.img.src] });
     console.log(`${image.img.src} ok`);
-    console.log(this.state.loaded);
   };
 
   handleOnFail = (instance) => {
@@ -39,7 +40,7 @@ class App extends React.Component {
   handleDone = (instance) => {
     setTimeout(() => {
       this.setState({ finishLoad: true });
-    }, 0);
+    }, 1000); // dumb
     console.log("all ok");
   };
 
@@ -59,8 +60,10 @@ class App extends React.Component {
 
         {!this.state.finishLoad && (
           <div className={styles.loadingOverlay}>
-            <p>Watch Magic Unfolds</p>
-            <progress max={this.preloadNums} value={this.state.loaded.length} />
+            <div className={styles.progress}>
+              <p>Watch Magic Unfolds</p>
+              <ProgressBar animated max={this.preloadNums} now={this.state.loaded.length} label={Cool()} />
+            </div>
           </div>
         )}
 
