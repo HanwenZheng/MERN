@@ -6,6 +6,8 @@ import { history } from "../Redux/Helper";
 import { alertActions } from "../Redux/Actions";
 import MyPage from "../Page/MyPage/MyPage";
 import HomePage from "../Page/HomePage";
+import styles from "./App.module.scss";
+import ImagesLoaded from "react-images-loaded";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,22 +17,68 @@ class App extends React.Component {
       // clear alert on location change
       this.props.clearAlerts();
     });
+
+    this.state = {
+      loaded: [],
+      finishLoad: false,
+    };
   }
+
+  preloadNums = 3;
+
+  handleOnProgress = (instance, image) => {
+    this.setState({ loaded: [...this.state.loaded, image.img.src] });
+    console.log(`${image.img.src} ok`);
+    console.log(this.state.loaded);
+  };
+
+  handleOnFail = (instance) => {
+    console.log("crap, at least one failed");
+  };
+
+  handleDone = (instance) => {
+    setTimeout(() => {
+      this.setState({ finishLoad: true });
+    }, 0);
+    console.log("all ok");
+  };
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-10">
-            <Router history={history}>
-              <Switch>
-                <Route exact path="/" component={MyPage} />
-                <Route path="/home" component={HomePage} />
-                <Redirect from="*" to="/" />
-              </Switch>
-            </Router>
+      <div>
+        <ImagesLoaded
+          onProgress={this.handleOnProgress}
+          onFail={this.handleOnFail}
+          done={this.handleDone}
+          className={styles.ImagesLoaded}
+        >
+          <img src="https://images.unsplash.com/photo-1601714582667-574b826b99a6" alt="" />
+          <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d" alt="" />
+          <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f" alt="" />
+        </ImagesLoaded>
+
+        {!this.state.finishLoad && (
+          <div className={styles.loadingOverlay}>
+            <p>Watch Magic Unfolds</p>
+            <progress max={this.preloadNums} value={this.state.loaded.length} />
           </div>
-        </div>
+        )}
+
+        {this.state.finishLoad && (
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-10">
+                <Router history={history}>
+                  <Switch>
+                    <Route exact path="/" component={MyPage} />
+                    <Route path="/home" component={HomePage} />
+                    <Redirect from="*" to="/" />
+                  </Switch>
+                </Router>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
