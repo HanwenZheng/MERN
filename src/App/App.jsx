@@ -1,15 +1,17 @@
 import React from "react"; // noinspection ES6CheckImport
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { CSSTransition } from "react-transition-group";
 import ImagesLoaded from "react-images-loaded";
 import { ProgressBar } from "react-bootstrap";
+import Cool from "../helper/CoolEmoji";
 
 import { history } from "../Redux/Helper";
 import { alertActions } from "../Redux/Actions";
 import MyPage from "../Page/MyPage/MyPage";
 import HomePage from "../Page/HomePage";
 import styles from "./App.module.scss";
-import Cool from "../helper/CoolEmoji";
+import easeIn from "../Effect/easeOut.module.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -58,14 +60,14 @@ class App extends React.Component {
           <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f" alt="" />
         </ImagesLoaded>
 
-        {!this.state.finishLoad && (
+        <CSSTransition in={!this.state.finishLoad} timeout={2000} classNames={easeIn}>
           <div className={styles.loadingOverlay}>
             <div className={styles.progress}>
               <p>Watch Magic Unfolds</p>
               <ProgressBar animated max={this.preloadNums} now={this.state.loaded.length} label={Cool()} />
             </div>
           </div>
-        )}
+        </CSSTransition>
 
         {this.state.finishLoad && (
           <div className="container">
@@ -97,4 +99,4 @@ const actionCreators = {
 };
 
 const connectedApp = connect(mapState, actionCreators)(App);
-export { connectedApp as App };
+export default connectedApp;

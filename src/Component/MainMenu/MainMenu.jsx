@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-boots
 import styles from "./MainMenu.module.scss";
 
 import { CSSTransition } from "react-transition-group";
-import easeIn from "./easeIn.module";
+import easeIn from "../../Effect/easeIn.module";
 
 function MainMenu() {
   const [inProp, setInProp] = useState(false);

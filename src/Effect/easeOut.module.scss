@@ -1,0 +1,12 @@
+.exit {
+  opacity: 1;
+}
+
+.exitActive,
+.exitDone {
+  opacity: 0;
+}
+
+.exitActive {
+  transition: all 1000ms ease-in-out;
+}
