@@ -60,7 +60,7 @@ class App extends React.Component {
           <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f" alt="" />
         </ImagesLoaded>
 
-        <CSSTransition in={!this.state.finishLoad} timeout={2000} classNames={easeIn}>
+        <CSSTransition in={!this.state.finishLoad} timeout={1200} classNames={easeIn}>
           <div className={styles.loadingOverlay}>
             <div className={styles.progress}>
               <p>Watch Magic Unfolds</p>
@@ -99,4 +99,4 @@ const actionCreators = {
 };
 
 const connectedApp = connect(mapState, actionCreators)(App);
-export default connectedApp;
+export { connectedApp as App };

@@ -2,9 +2,12 @@
   opacity: 1;
 }
 
-.exitActive,
-.exitDone {
+.exitActive {
   opacity: 0;
+}
+
+.exitDone {
+  display: none;
 }
 
 .exitActive {
